@@ -1,0 +1,81 @@
+.TailwindColorsEditor__wrapper___3UzxE {
+  display: flex;
+}
+
+.TailwindColorsEditor__error___19ov5 {
+  background-color: #ff460d;
+  color: #fff;
+  margin-left: -16px;
+  margin-right: -16px;
+  padding: 10px 16px;
+}
+
+.TailwindColorsEditor__feedback___3qZai {
+  flex: 1;
+  height: 40px;
+  border: 1px solid #3f3f3f;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+}
+
+.TailwindColorsEditor__checkboard___1WXua {
+  background-image: url('data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" fill-opacity=".25"><rect x="200" width="200" height="200" /><rect y="200" width="200" height="200" /></svg>');
+  background-size: 16px 16px;
+}
+
+.TailwindColorsEditor__transparent___2LQQt {
+  background-color: #fff !important;
+}
+
+.TailwindColorsEditor__group___1Wn5O {
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.TailwindColorsEditor__list___1yzpu {
+  flex: 1;
+  position: relative;
+  display: flex;
+  gap: 2px;
+  margin-bottom: 15px;
+}
+
+.TailwindColorsEditor__item___QBzuH {
+  height: 24px;
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  flex: 1;
+}
+
+.TailwindColorsEditor__itemactive___3O6Tf,
+.TailwindColorsEditor__item___QBzuH:hover,
+.TailwindColorsEditor__item___QBzuH:focus {
+  box-shadow: 0 0 0 2px #00adee;
+  z-index: 1;
+}
+
+.TailwindColorsEditor__disabled___KFuuZ {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.TailwindColorsEditor__disabled___KFuuZ > * {
+  pointer-events: none;
+}
+
+.TailwindColorsEditor__reset___2YvL5 {
+  margin-left: 10px;
+}
+
+.TailwindColorsEditor__text-white___3nUnW {
+  color: #fff;
+}
+
+.TailwindColorsEditor__text-black___1VGqZ {
+  color: #000;
+}
+
+
+/*# sourceMappingURL=Plugin.css.map*/

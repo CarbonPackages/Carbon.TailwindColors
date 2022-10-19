@@ -1,0 +1,14 @@
+Neos:
+  Neos:
+    nodeTypes:
+      presets:
+        properties:
+          Carbon:
+            TailwindColors:
+              type: array
+              ui:
+                inspector:
+                  editor: 'Carbon.TailwindColors/Editor'
+                  editorOptions:
+                    multiple: false
+                    placeholder: null

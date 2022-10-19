@@ -1,0 +1,10 @@
+Neos:
+  Neos:
+    Ui:
+      resources:
+        javascript:
+          Carbon.TailwindColors:
+            resource: resource://Carbon.TailwindColors/Public/Plugin.js
+        stylesheets:
+          Carbon.TailwindColors:
+            resource: resource://Carbon.TailwindColors/Public/Plugin.css
