@@ -107,7 +107,6 @@ Neos:
 
             amber:
               label: Amber
-              0: '#ffffff'
               50: '#fffbeb'
               100: '#fef3c7'
               200: '#fde68a'
@@ -121,7 +120,6 @@ Neos:
 
             yellow:
               label: Yellow
-              0: '#ffffff'
               50: '#fefce8'
               100: '#fef9c3'
               200: '#fef08a'
@@ -135,7 +133,6 @@ Neos:
 
             lime:
               label: Lime
-              0: '#ffffff'
               50: '#f7fee7'
               100: '#ecfccb'
               200: '#d9f99d'
@@ -149,7 +146,6 @@ Neos:
 
             green:
               label: Green
-              0: '#ffffff'
               50: '#f0fdf4'
               100: '#dcfce7'
               200: '#bbf7d0'
@@ -163,7 +159,6 @@ Neos:
 
             emerald:
               label: Emerald
-              0: '#ffffff'
               50: '#ecfdf5'
               100: '#d1fae5'
               200: '#a7f3d0'
@@ -177,7 +172,6 @@ Neos:
 
             teal:
               label: Teal
-              0: '#ffffff'
               50: '#f0fdfa'
               100: '#ccfbf1'
               200: '#99f6e4'
@@ -191,7 +185,6 @@ Neos:
 
             cyan:
               label: Cyan
-              0: '#ffffff'
               50: '#ecfeff'
               100: '#cffafe'
               200: '#a5f3fc'
@@ -205,7 +198,6 @@ Neos:
 
             sky:
               label: Sky
-              0: '#ffffff'
               50: '#f0f9ff'
               100: '#e0f2fe'
               200: '#bae6fd'
@@ -219,7 +211,6 @@ Neos:
 
             blue:
               label: Blue
-              0: '#ffffff'
               50: '#eff6ff'
               100: '#dbeafe'
               200: '#bfdbfe'
@@ -233,7 +224,6 @@ Neos:
 
             indigo:
               label: Indigo
-              0: '#ffffff'
               50: '#eef2ff'
               100: '#e0e7ff'
               200: '#c7d2fe'
@@ -247,7 +237,6 @@ Neos:
 
             violet:
               label: Violet
-              0: '#ffffff'
               50: '#f5f3ff'
               100: '#ede9fe'
               200: '#ddd6fe'
@@ -261,7 +250,6 @@ Neos:
 
             purple:
               label: Purple
-              0: '#ffffff'
               50: '#faf5ff'
               100: '#f3e8ff'
               200: '#e9d5ff'
@@ -275,7 +263,6 @@ Neos:
 
             fuchsia:
               label: Fuchsia
-              0: '#ffffff'
               50: '#fdf4ff'
               100: '#fae8ff'
               200: '#f5d0fe'
@@ -289,7 +276,6 @@ Neos:
 
             pink:
               label: Pink
-              0: '#ffffff'
               50: '#fdf2f8'
               100: '#fce7f3'
               200: '#fbcfe8'
@@ -303,7 +289,6 @@ Neos:
 
             rose:
               label: Rose
-              0: '#ffffff'
               50: '#fff1f2'
               100: '#ffe4e6'
               200: '#fecdd3'
