@@ -133,6 +133,7 @@ function getPreviewBoxText({ colors, value, placeholder }) {
   if (strength == "1000") {
     return "Black";
   }
+
   const label = colors[value.group].label || value.group;
   return `${label} - ${strength}`;
 }
@@ -149,15 +150,10 @@ function returnValues(options) {
     return { group };
   }
 
-  const groupColors = colors[group];
-  let color = groupColors[strength];
+  const color = colors[group][strength];
+
   if (!color) {
-    const keys = Object.keys(groupColors);
-    if (strength == "1000") {
-      color = groupColors(keys[keys.length - 1]);
-    } else {
-      color = groupColors(keys[0]);
-    }
+    return { group };
   }
 
   return {
