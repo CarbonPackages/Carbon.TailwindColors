@@ -29,6 +29,7 @@ class Editor extends PureComponent {
             placeholder: PropTypes.string,
             disabled: PropTypes.bool,
             scheme: PropTypes.oneOf(["grayscale", "color"]),
+            disableStrength: PropTypes.arrayOf(PropTypes.string || PropTypes.number),
             colors: PropTypes.objectOf(
                 PropTypes.shape({
                     label: PropTypes.string,
@@ -58,6 +59,7 @@ class Editor extends PureComponent {
         disabled: false,
         placeholder: null,
         scheme: null,
+        disableStrength: [],
     };
 
     render() {
@@ -80,6 +82,13 @@ class Editor extends PureComponent {
                 if (colors[color]["1000"]) {
                     delete colors[color];
                 }
+            }
+        }
+        if (options.disableStrength.length) {
+            for (let color in colors) {
+                options.disableStrength.forEach((strength) => {
+                    delete colors[color][strength.toString()];
+                });
             }
         }
 
