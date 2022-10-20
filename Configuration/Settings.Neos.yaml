@@ -8,3 +8,8 @@ Neos:
         stylesheets:
           Carbon.TailwindColors:
             resource: resource://Carbon.TailwindColors/Public/Plugin.css
+    userInterface:
+      translation:
+        autoInclude:
+          Carbon.TailwindColors:
+            - Main

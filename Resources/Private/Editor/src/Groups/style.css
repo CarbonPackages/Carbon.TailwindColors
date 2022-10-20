@@ -1,0 +1,16 @@
+.error {
+  background-color: #ff460d;
+  color: #fff;
+  margin-left: -16px;
+  margin-right: -16px;
+  padding: 10px 16px;
+}
+
+.disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.disabled > * {
+  pointer-events: none;
+}

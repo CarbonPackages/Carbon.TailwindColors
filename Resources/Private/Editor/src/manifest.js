@@ -1,16 +1,16 @@
 import manifest from "@neos-project/neos-ui-extensibility";
 
-import TailwindColors from "./TailwindColorsEditor";
+import Colors from "./Colors";
+import Groups from "./Groups";
 
-manifest("Carbon.TailwindColors:Editor", {}, (globalRegistry, { frontendConfiguration }) => {
+manifest("Carbon.TailwindColors:Editors", {}, (globalRegistry, { frontendConfiguration }) => {
     const editorsRegistry = globalRegistry.get("inspector").get("editors");
-    const config = frontendConfiguration["Carbon.TailwindColors"];
 
-    editorsRegistry.set("Carbon.TailwindColors/Editor", {
-        component: class extends TailwindColors {
-            getConfig() {
-                return config;
-            }
-        },
+    editorsRegistry.set("Carbon.TailwindColors/Colors", {
+        component: Colors,
+    });
+
+    editorsRegistry.set("Carbon.TailwindColors/Groups", {
+        component: Groups,
     });
 });

@@ -5,10 +5,15 @@ Neos:
         properties:
           Carbon:
             TailwindColors:
-              type: array
-              ui:
-                inspector:
-                  editor: "Carbon.TailwindColors/Editor"
-                  editorOptions:
-                    multiple: false
-                    placeholder: null
+              groups:
+                type: string
+                ui:
+                  inspector:
+                    editor: 'Carbon.TailwindColors/Groups'
+              colors:
+                type: array
+                ui:
+                  inspector:
+                    editor: 'Carbon.TailwindColors/Colors'
+                    editorOptions:
+                      placeholder: null

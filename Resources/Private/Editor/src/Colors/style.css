@@ -10,22 +10,9 @@
   padding: 10px 16px;
 }
 
-.feedback {
-  flex: 1;
-  height: 40px;
-  border: 1px solid #3f3f3f;
-  display: flex;
-  align-items: center;
-  padding-left: 10px;
-}
-
 .checkboard {
   background-image: url('data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" fill-opacity=".25"><rect x="200" width="200" height="200" /><rect y="200" width="200" height="200" /></svg>');
   background-size: 16px 16px;
-}
-
-.transparent {
-  background-color: #fff !important;
 }
 
 .group {

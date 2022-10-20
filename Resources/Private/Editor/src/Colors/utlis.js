@@ -1,4 +1,4 @@
-import style from "./TailwindColorsEditor.css";
+import style from "./style.css";
 
 function hex2rgb(hex) {
     if (hex.length === 4) {
@@ -117,19 +117,20 @@ function getPreviewBoxAttributes({ colors, value, placeholder }) {
     };
 }
 
-function getPreviewBoxText({ colors, value, placeholder }) {
+function getPreviewBoxText({ colors, value, placeholder, i18n }) {
     const strength = value.strength;
+    console.log(placeholder);
 
     if (!strength) {
-        return placeholder ? "" : "Select a color";
+        return placeholder ? "" : i18n.selectColor;
     }
 
     if (strength == "0") {
-        return "White";
+        return i18n.white;
     }
 
     if (strength == "1000") {
-        return "Black";
+        return i18n.black;
     }
 
     const label = colors[value.group].label || value.group;

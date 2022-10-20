@@ -1,11 +1,17 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import { IconButton, SelectBox } from "@neos-project/react-ui-components";
-import OptionWithPreview from "./OptionWithPreview";
-import { returnValues, getPreviewBoxAttributes, getPreviewBoxText } from "./Utlis";
-import style from "./TailwindColorsEditor.css";
+import { neos } from "@neos-project/neos-ui-decorators";
+import OptionWithPreview from "../Helper/OptionWithPreview";
+import { returnValues, getPreviewBoxAttributes, getPreviewBoxText } from "./utlis";
+import style from "./style.css";
 
-export default class Editor extends PureComponent {
+const neosifier = neos((globalRegistry) => ({
+    i18nRegistry: globalRegistry.get("i18n"),
+    config: globalRegistry.get("frontendConfiguration").get("Carbon.TailwindColors"),
+}));
+
+class Editor extends PureComponent {
     static propTypes = {
         value: PropTypes.shape({
             group: PropTypes.string,
@@ -21,7 +27,6 @@ export default class Editor extends PureComponent {
         options: PropTypes.shape({
             allowEmpty: PropTypes.bool,
             placeholder: PropTypes.string,
-            resetLabel: PropTypes.string,
             disabled: PropTypes.bool,
             colors: PropTypes.objectOf(
                 PropTypes.shape({
@@ -48,19 +53,18 @@ export default class Editor extends PureComponent {
     };
 
     static defaultOptions = {
-        allowEmpty: true,
+        allowEmpty: false,
         disabled: false,
         placeholder: null,
-        resetLabel: "Reset",
     };
 
-    getConfig() {
-        return {};
-    }
-
     render() {
-        let { colors } = this.getConfig();
-        let { value, options } = this.props;
+        let {
+            value,
+            options,
+            i18nRegistry,
+            config: { colors },
+        } = this.props;
 
         options = Object.assign({}, this.constructor.defaultOptions, options);
         if (options.colors) {
@@ -68,7 +72,11 @@ export default class Editor extends PureComponent {
         }
 
         if (!colors) {
-            return <div className={style.error}>No colors defined, please add them to your YAML configuration</div>;
+            return (
+                <div className={style.error}>
+                    {i18nRegistry.translate("Carbon.TailwindColors:Main:noColorsDefined")}
+                </div>
+            );
         }
 
         value = returnValues({
@@ -101,9 +109,9 @@ export default class Editor extends PureComponent {
                 const color = groupValues[strength];
                 let label = strength;
                 if (label == "0") {
-                    label = "White";
+                    label = i18nRegistry.translate("Carbon.TailwindColors:Main:white");
                 } else if (label == "1000") {
-                    label = "Black";
+                    label = i18nRegistry.translate("Carbon.TailwindColors:Main:black");
                 }
                 values.push({
                     strength,
@@ -127,18 +135,24 @@ export default class Editor extends PureComponent {
             this.props.commit(returnValues({ group, strength, colors }));
         };
 
+        const previewTextI18n = {
+            white: i18nRegistry.translate("Carbon.TailwindColors:Main:white"),
+            black: i18nRegistry.translate("Carbon.TailwindColors:Main:black"),
+            selectColor: i18nRegistry.translate("Carbon.TailwindColors:Main:selectColor"),
+        };
+
         return (
-            <div className={options.disabled && style.disabled}>
+            <div className={disabled && style.disabled}>
                 <div className={style.wrapper}>
                     <div {...getPreviewBoxAttributes({ colors, value, placeholder })}>
-                        {getPreviewBoxText({ colors, value, placeholder })}
+                        {getPreviewBoxText({ colors, value, placeholder, i18n: previewTextI18n })}
                     </div>
                     {allowEmpty && (
                         <div className={style.reset}>
                             <IconButton
                                 style="lighter"
                                 icon="times"
-                                title={options.resetLabel}
+                                title={i18nRegistry.translate("Carbon.TailwindColors:Main:resetColor")}
                                 onClick={this.onReset}
                             />
                         </div>
@@ -148,7 +162,7 @@ export default class Editor extends PureComponent {
                     <SelectBox
                         options={selectBoxOptions}
                         value={value && value.group}
-                        placeholder="Please select a color group"
+                        placeholder={i18nRegistry.translate("Carbon.TailwindColors:Main:selectColorGroup")}
                         allowEmpty={false}
                         onValueChange={groupChangeHandler}
                         ListPreviewElement={OptionWithPreview}
@@ -179,3 +193,5 @@ export default class Editor extends PureComponent {
         );
     }
 }
+
+export default neosifier(Editor);

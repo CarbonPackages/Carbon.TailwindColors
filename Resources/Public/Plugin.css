@@ -1,8 +1,8 @@
-.TailwindColorsEditor__wrapper___3UzxE {
+.style__wrapper___3dJlT {
   display: flex;
 }
 
-.TailwindColorsEditor__error___19ov5 {
+.style__error___3PUYe {
   background-color: #ff460d;
   color: #fff;
   margin-left: -16px;
@@ -10,30 +10,17 @@
   padding: 10px 16px;
 }
 
-.TailwindColorsEditor__feedback___3qZai {
-  flex: 1;
-  height: 40px;
-  border: 1px solid #3f3f3f;
-  display: flex;
-  align-items: center;
-  padding-left: 10px;
-}
-
-.TailwindColorsEditor__checkboard___1WXua {
+.style__checkboard___3FVA1 {
   background-image: url('data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" fill-opacity=".25"><rect x="200" width="200" height="200" /><rect y="200" width="200" height="200" /></svg>');
   background-size: 16px 16px;
 }
 
-.TailwindColorsEditor__transparent___2LQQt {
-  background-color: #fff !important;
-}
-
-.TailwindColorsEditor__group___1Wn5O {
+.style__group___3GOOB {
   margin-top: 15px;
   margin-bottom: 5px;
 }
 
-.TailwindColorsEditor__list___1yzpu {
+.style__list___2q8wb {
   flex: 1;
   position: relative;
   display: flex;
@@ -41,7 +28,7 @@
   margin-bottom: 15px;
 }
 
-.TailwindColorsEditor__item___QBzuH {
+.style__item___2aNCr {
   height: 24px;
   cursor: pointer;
   border: 0;
@@ -49,32 +36,49 @@
   flex: 1;
 }
 
-.TailwindColorsEditor__itemactive___3O6Tf,
-.TailwindColorsEditor__item___QBzuH:hover,
-.TailwindColorsEditor__item___QBzuH:focus {
+.style__itemactive___3K6cV,
+.style__item___2aNCr:hover,
+.style__item___2aNCr:focus {
   box-shadow: 0 0 0 2px #00adee;
   z-index: 1;
 }
 
-.TailwindColorsEditor__disabled___KFuuZ {
+.style__disabled___tF4oo {
   cursor: not-allowed;
   opacity: 0.65;
 }
 
-.TailwindColorsEditor__disabled___KFuuZ > * {
+.style__disabled___tF4oo > * {
   pointer-events: none;
 }
 
-.TailwindColorsEditor__reset___2YvL5 {
+.style__reset___3i1Wi {
   margin-left: 10px;
 }
 
-.TailwindColorsEditor__text-white___3nUnW {
+.style__text-white___o5bgp {
   color: #fff;
 }
 
-.TailwindColorsEditor__text-black___1VGqZ {
+.style__text-black___21vNN {
   color: #000;
+}
+
+.style__error___15X2d {
+  background-color: #ff460d;
+  color: #fff;
+  margin-left: -16px;
+  margin-right: -16px;
+  padding: 10px 16px;
+}
+
+.style__disabled___2nSvC {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.style__disabled___2nSvC > * {
+  pointer-events: none;
 }
 
 

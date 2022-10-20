@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2"
+    xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file original="" product-name="Carbon.TailwindColors" source-language="en" target-language="de" datatype="plaintext">
+        <body>
+            <trans-unit id="resetColor" xml:space="preserve">
+                <source>Reset color</source>
+                <target>Farbe zurücksetzen</target>
+            </trans-unit>
+            <trans-unit id="selectColor" xml:space="preserve">
+                <source>Please select a color</source>
+                <target>Wählen Sie eine Farbe</target>
+            </trans-unit>
+            <trans-unit id="selectColorGroup" xml:space="preserve">
+                <source>Please select a color group</source>
+                <target>Bitte wählen Sie eine Farbgruppe</target>
+            </trans-unit>
+            <trans-unit id="noColorsDefined" xml:space="preserve">
+                <source>No colors defined, please add them to your YAML configuration</source>
+                <target>Keine Farben definiert, bitte fügen Sie diese in Ihrer YAML-Konfiguration hinzu</target>
+            </trans-unit>
+            <trans-unit id="white" xml:space="preserve">
+                <source>White</source>
+                <target>Weiß</target>
+            </trans-unit>
+            <trans-unit id="black" xml:space="preserve">
+                <source>Black</source>
+                <target>Schwarz</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
