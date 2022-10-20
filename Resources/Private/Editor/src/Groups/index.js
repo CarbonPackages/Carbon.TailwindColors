@@ -7,8 +7,12 @@ import style from "./style.css";
 
 const neosifier = neos((globalRegistry) => ({
     i18nRegistry: globalRegistry.get("i18n"),
-    config: globalRegistry.get("frontendConfiguration").get("Carbon.TailwindColors"),
+    config: globalRegistry.get("frontendConfiguration").get("CarbonTailwindColors"),
 }));
+
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
 class Editor extends PureComponent {
     static propTypes = {
@@ -69,8 +73,7 @@ class Editor extends PureComponent {
 
         const selectBoxOptions = Object.keys(colors).map((value) => {
             const colorItems = Object.assign({}, colors[value]);
-            const label = colors[value].label || value;
-            delete colorItems.label;
+            const label = capitalizeFirstLetter(value);
             return {
                 value,
                 colors: Object.values(colorItems),

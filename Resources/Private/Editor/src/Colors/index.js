@@ -3,12 +3,12 @@ import PropTypes from "prop-types";
 import { IconButton, SelectBox } from "@neos-project/react-ui-components";
 import { neos } from "@neos-project/neos-ui-decorators";
 import OptionWithPreview from "../Helper/OptionWithPreview";
-import { returnValues, getPreviewBoxAttributes, getPreviewBoxText } from "./utlis";
+import { returnValues, getPreviewBoxAttributes, getPreviewBoxText, capitalizeFirstLetter } from "./utlis";
 import style from "./style.css";
 
 const neosifier = neos((globalRegistry) => ({
     i18nRegistry: globalRegistry.get("i18n"),
-    config: globalRegistry.get("frontendConfiguration").get("Carbon.TailwindColors"),
+    config: globalRegistry.get("frontendConfiguration").get("CarbonTailwindColors"),
 }));
 
 class Editor extends PureComponent {
@@ -32,7 +32,6 @@ class Editor extends PureComponent {
             disableStrength: PropTypes.arrayOf(PropTypes.string || PropTypes.number),
             colors: PropTypes.objectOf(
                 PropTypes.shape({
-                    label: PropTypes.string,
                     0: PropTypes.string,
                     50: PropTypes.string,
                     100: PropTypes.string,
@@ -109,8 +108,7 @@ class Editor extends PureComponent {
 
         const selectBoxOptions = Object.keys(colors).map((value) => {
             const colorItems = Object.assign({}, colors[value]);
-            const label = colors[value].label || value;
-            delete colorItems.label;
+            const label = capitalizeFirstLetter(value);
             return {
                 value,
                 colors: Object.values(colorItems),
@@ -121,12 +119,9 @@ class Editor extends PureComponent {
         const colorsArray = [];
         for (const group in colors) {
             const groupValues = colors[group];
-            const label = groupValues.label || group;
+            const label = capitalizeFirstLetter(group);
             const values = [];
             for (const strength in groupValues) {
-                if (strength === "label") {
-                    continue;
-                }
                 const color = groupValues[strength];
                 let label = strength;
                 if (label == "0") {

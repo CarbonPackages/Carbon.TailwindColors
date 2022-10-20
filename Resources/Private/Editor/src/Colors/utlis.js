@@ -101,7 +101,7 @@ function getPreviewBoxAttributes({ colors, value, placeholder }) {
     }
 
     const color = hasValue ? colors[group][strength] : placeholder;
-    const title = hasValue ? `${colors[group].label} - ${strength}` : null;
+    const title = hasValue ? `${capitalizeFirstLetter(group)} - ${strength}` : null;
     const textColor = hasValue ? getTextColor(color) : null;
 
     const classNames = [style.feedback, style[textColor]];
@@ -132,7 +132,7 @@ function getPreviewBoxText({ colors, value, placeholder, i18n }) {
         return i18n.black;
     }
 
-    const label = colors[value.group].label || value.group;
+    const label = capitalizeFirstLetter(value.group);
     return `${label} - ${strength}`;
 }
 
@@ -161,4 +161,8 @@ function returnValues(options) {
     };
 }
 
-export { getPreviewBoxAttributes, getPreviewBoxText, returnValues };
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+export { getPreviewBoxAttributes, getPreviewBoxText, returnValues, capitalizeFirstLetter };

@@ -26,7 +26,7 @@ Add a property of type string and configure the editor as seen in this example:
 Foo.Bar:Content.Text:
   properties:
     options:
-        preset: 'Carbon.TailwindColors'
+        preset: 'Carbon.TailwindColors.colors'
       ui:
         label: Color
         inspector:
@@ -36,8 +36,10 @@ Foo.Bar:Content.Text:
             placeholder: gold
             # Hides the reset button if set to false
             allowEmpty: true
-            # Set a custom label for the reset button
-            resetLabel: Custom label
+            # This can be either color or grayscale. This reduces the list to only the color ones or only the gray colors
+            scheme: color
+            # You can disable certain strengths
+            disableStrength: [50, 100]
 ```
 
 ## Contributions
