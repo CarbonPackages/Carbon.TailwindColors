@@ -2,6 +2,15 @@
   display: flex;
 }
 
+.style__feedback___1saVI {
+  flex: 1;
+  height: 40px;
+  border: 1px solid #3f3f3f;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+}
+
 .style__error___3PUYe {
   background-color: #ff460d;
   color: #fff;

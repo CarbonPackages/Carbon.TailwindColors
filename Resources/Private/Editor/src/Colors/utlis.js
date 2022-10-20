@@ -119,7 +119,6 @@ function getPreviewBoxAttributes({ colors, value, placeholder }) {
 
 function getPreviewBoxText({ colors, value, placeholder, i18n }) {
     const strength = value.strength;
-    console.log(placeholder);
 
     if (!strength) {
         return placeholder ? "" : i18n.selectColor;
@@ -139,7 +138,7 @@ function getPreviewBoxText({ colors, value, placeholder, i18n }) {
 
 function returnValues(options) {
     let { group, strength, colors } = options;
-    if (!group) {
+    if (!group || !colors[group]) {
         return "";
     }
 

@@ -28,6 +28,7 @@ class Editor extends PureComponent {
             allowEmpty: PropTypes.bool,
             placeholder: PropTypes.string,
             disabled: PropTypes.bool,
+            scheme: PropTypes.oneOf(["grayscale", "color"]),
             colors: PropTypes.objectOf(
                 PropTypes.shape({
                     label: PropTypes.string,
@@ -56,19 +57,30 @@ class Editor extends PureComponent {
         allowEmpty: false,
         disabled: false,
         placeholder: null,
+        scheme: null,
     };
 
     render() {
-        let {
-            value,
-            options,
-            i18nRegistry,
-            config: { colors },
-        } = this.props;
-
+        let { value, options, i18nRegistry, config } = this.props;
         options = Object.assign({}, this.constructor.defaultOptions, options);
         if (options.colors) {
-            colors = options.colors;
+            config.colors = options.colors;
+        }
+
+        let colors = Object.assign({}, config.colors);
+
+        if (options.scheme === "grayscale") {
+            for (let color in colors) {
+                if (!colors[color]["1000"]) {
+                    delete colors[color];
+                }
+            }
+        } else if (options.scheme === "color") {
+            for (let color in colors) {
+                if (colors[color]["1000"]) {
+                    delete colors[color];
+                }
+            }
         }
 
         if (!colors) {
