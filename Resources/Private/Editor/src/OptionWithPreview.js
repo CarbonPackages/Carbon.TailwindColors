@@ -7,7 +7,7 @@ class OptionWithPreview extends PureComponent {
   static propTypes = {
     option: PropTypes.shape({
       label: PropTypes.string.isRequired,
-      color: PropTypes.string,
+      colors: PropTypes.arrayOf(PropTypes.string),
     }),
   };
 
