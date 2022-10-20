@@ -1,5 +1,5 @@
 {
-  "description": "Carbon.ColorValues:ColorValuesEditor",
+  "description": "Carbon.TailwindColors:Editor",
   "license": "proprietary",
   "private": true,
   "engines": {

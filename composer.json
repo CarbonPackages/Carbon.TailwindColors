@@ -13,10 +13,10 @@
     ],
     "authors": [
         {
-        "name": "Jon Uhlmann",
-        "email": "hello@uhlmann.pro",
-        "homepage": "https://www.uhlmann.pro",
-        "role": "Developer"
+            "name": "Jon Uhlmann",
+            "email": "hello@uhlmann.pro",
+            "homepage": "https://www.uhlmann.pro",
+            "role": "Developer"
         }
     ],
     "require": {
@@ -26,6 +26,7 @@
         "exclude": [
             ".github",
             ".gitattributes",
+            ".editorconfig",
             ".gitignore",
             "CODE_OF_CONDUCT.md"
         ]

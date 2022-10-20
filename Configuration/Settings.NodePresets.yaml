@@ -8,7 +8,7 @@ Neos:
               type: array
               ui:
                 inspector:
-                  editor: 'Carbon.TailwindColors/Editor'
+                  editor: "Carbon.TailwindColors/Editor"
                   editorOptions:
                     multiple: false
                     placeholder: null
