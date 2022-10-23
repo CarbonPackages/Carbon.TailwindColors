@@ -45,18 +45,21 @@ class Editor extends PureComponent {
         if (options.colors) {
             config.colors = options.colors;
         }
+        if (options.grayscale) {
+            config.grayscale = options.grayscale;
+        }
 
         let colors = Object.assign({}, config.colors);
 
         if (options.scheme === "grayscale") {
             for (let color in colors) {
-                if (!colors[color]["1000"]) {
+                if (!config.grayscale.includes(color)) {
                     delete colors[color];
                 }
             }
         } else if (options.scheme === "color") {
             for (let color in colors) {
-                if (colors[color]["1000"]) {
+                if (config.grayscale.includes(color)) {
                     delete colors[color];
                 }
             }

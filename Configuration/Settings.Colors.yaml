@@ -3,6 +3,12 @@ Neos:
     Ui:
       frontendConfiguration:
         CarbonTailwindColors:
+          grayscale:
+            - slate
+            - gray
+            - zinc
+            - neutral
+            - stone
           colors:
             slate:
               0: '#ffffff'
