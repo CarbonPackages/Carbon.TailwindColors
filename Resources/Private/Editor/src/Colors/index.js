@@ -4,7 +4,7 @@ import { IconButton, SelectBox } from "@neos-project/react-ui-components";
 import { neos } from "@neos-project/neos-ui-decorators";
 import OptionWithPreview from "../Helper/OptionWithPreview";
 import { returnValues, getPreviewBoxAttributes, getPreviewBoxText, capitalizeFirstLetter } from "./utlis";
-import style from "./style.css";
+import style from "./style.module.css";
 
 const neosifier = neos((globalRegistry) => ({
     i18nRegistry: globalRegistry.get("i18n"),

@@ -1,4 +1,4 @@
-import style from "./style.css";
+import style from "./style.module.css";
 
 function hex2rgb(hex) {
     if (hex.length === 4) {
