@@ -50,6 +50,11 @@ class Editor extends PureComponent {
         }
 
         let colors = Object.assign({}, config.colors);
+        Object.entries(colors).forEach(([key, value]) => {
+            if (!value || !Object.keys(value).length) {
+                delete colors[key];
+            }
+        });
 
         if (options.scheme === "grayscale") {
             for (let color in colors) {
