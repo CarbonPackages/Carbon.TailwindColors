@@ -9,9 +9,9 @@
   },
   "devDependencies": {
     "@neos-project/eslint-config-neos": "^2.3.0",
-    "@neos-project/neos-ui-extensibility": "~8.3.4",
-    "@neos-project/react-ui-components": "^8.1",
-    "esbuild": "^0.19.4",
-    "esbuild-plugin-lightningcss-modules": "^0.1.0"
+    "@neos-project/neos-ui-extensibility": "~8.3.6",
+    "@neos-project/react-ui-components": "^8.3.6",
+    "esbuild": "^0.20.1",
+    "esbuild-plugin-lightningcss-modules": "^0.1.2"
   }
 }
