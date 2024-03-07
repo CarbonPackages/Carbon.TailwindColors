@@ -43,6 +43,7 @@ class Editor extends PureComponent {
                     700: PropTypes.string,
                     800: PropTypes.string,
                     900: PropTypes.string,
+                    950: PropTypes.string,
                     1000: PropTypes.string,
                 })
             ),
