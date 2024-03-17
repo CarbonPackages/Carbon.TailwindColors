@@ -22,15 +22,6 @@
     "require": {
         "neos/neos-ui": "^7.3 || ^8.0"
     },
-    "archive": {
-        "exclude": [
-            ".github",
-            ".gitattributes",
-            ".editorconfig",
-            ".gitignore",
-            "CODE_OF_CONDUCT.md"
-        ]
-    },
     "extra": {
         "neos": {
             "package-key": "Carbon.TailwindColors"
