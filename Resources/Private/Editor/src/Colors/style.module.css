@@ -45,10 +45,15 @@
   flex: 1;
 }
 
-.itemactive,
-.item:hover,
-.item:focus {
-  box-shadow: 0 0 0 2px #00adee;
+.itemActive,
+.itemDefault:hover,
+.itemDefault:focus {
+  box-shadow: 0 0 0 2px var(--colors-PrimaryBlue);
+  z-index: 2;
+}
+
+.itemHighlight {
+  box-shadow: 0 0 0 2px var(--colors-Warn);
   z-index: 1;
 }
 

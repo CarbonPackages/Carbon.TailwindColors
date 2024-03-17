@@ -2,7 +2,7 @@ import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import { IconButton, SelectBox } from "@neos-project/react-ui-components";
 import { neos } from "@neos-project/neos-ui-decorators";
-import OptionWithPreview from "../Helper/OptionWithPreview";
+import OptionPreview from "../OptionPreview";
 import style from "./style.module.css";
 
 const neosifier = neos((globalRegistry) => ({
@@ -39,7 +39,7 @@ class Editor extends PureComponent {
     };
 
     render() {
-        let { value, options, i18nRegistry, config } = this.props;
+        let { value, options, i18nRegistry, config, highlight } = this.props;
 
         options = Object.assign({}, this.constructor.defaultOptions, options);
         if (options.colors) {
@@ -94,14 +94,15 @@ class Editor extends PureComponent {
         };
 
         return (
-            <div className={disabled && style.disabled}>
+            <div className={Boolean(disabled) && style.disabled}>
                 <SelectBox
                     options={selectBoxOptions}
                     value={value}
                     placeholder={placeholder || i18nRegistry.translate("Carbon.TailwindColors:Main:selectColorGroup")}
                     allowEmpty={allowEmpty}
                     onValueChange={onValueChange}
-                    ListPreviewElement={OptionWithPreview}
+                    ListPreviewElement={OptionPreview}
+                    className={Boolean(highlight) && style.highlight}
                 />
             </div>
         );

@@ -2,8 +2,9 @@ import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import { IconButton, SelectBox } from "@neos-project/react-ui-components";
 import { neos } from "@neos-project/neos-ui-decorators";
-import OptionWithPreview from "../Helper/OptionWithPreview";
+import OptionPreview from "../OptionPreview";
 import { returnValues, getPreviewBoxAttributes, getPreviewBoxText, capitalizeFirstLetter } from "./utlis";
+import clsx from "clsx";
 import style from "./style.module.css";
 
 const neosifier = neos((globalRegistry) => ({
@@ -63,7 +64,7 @@ class Editor extends PureComponent {
     };
 
     render() {
-        let { value, options, i18nRegistry, config } = this.props;
+        let { value, options, i18nRegistry, config, highlight } = this.props;
         options = Object.assign({}, this.constructor.defaultOptions, options);
         if (options.colors) {
             config.colors = options.colors;
@@ -190,7 +191,7 @@ class Editor extends PureComponent {
                         placeholder={i18nRegistry.translate("Carbon.TailwindColors:Main:selectColorGroup")}
                         allowEmpty={false}
                         onValueChange={groupChangeHandler}
-                        ListPreviewElement={OptionWithPreview}
+                        ListPreviewElement={OptionPreview}
                     />
                 </div>
                 {colorsArray.map((item) => {
@@ -198,18 +199,22 @@ class Editor extends PureComponent {
                     return (
                         isActiveGroup && (
                             <div className={style.list}>
-                                {item.values.map((entry) => (
-                                    <button
-                                        key={item.group + entry.strength}
-                                        className={[
-                                            style.item,
-                                            isActiveGroup && entry.strength == value.strength && style.itemactive,
-                                        ].join(" ")}
-                                        style={{ backgroundColor: entry.color }}
-                                        title={entry.label}
-                                        onClick={() => handleColorClick(item.group, entry.strength)}
-                                    ></button>
-                                ))}
+                                {item.values.map((entry) => {
+                                    const current = entry.strength == value.strength;
+                                    const itemHighlight = highlight && current;
+                                    const itemActive = current && !highlight;
+                                    const itemDefault = !itemHighlight && !itemActive;
+
+                                    return (
+                                        <button
+                                            key={item.group + entry.strength}
+                                            className={clsx(style.item, itemDefault && style.itemDefault, itemActive && style.itemActive, itemHighlight && style.itemHighlight)}
+                                            style={{ backgroundColor: entry.color }}
+                                            title={entry.label}
+                                            onClick={() => handleColorClick(item.group, entry.strength)}
+                                        ></button>
+                                    )
+                                })}
                             </div>
                         )
                     );
