@@ -1,7 +1,7 @@
 import manifest from "@neos-project/neos-ui-extensibility";
 
-import Colors from "./Colors";
-import Groups from "./Groups";
+import Colors from "./Component/Colors";
+import Groups from "./Component/Groups";
 
 manifest("Carbon.TailwindColors:Editors", {}, (globalRegistry) => {
     const editorsRegistry = globalRegistry.get("inspector").get("editors");
