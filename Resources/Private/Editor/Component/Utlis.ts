@@ -49,10 +49,12 @@ export function generateColorObject({
             continue;
         }
 
-        // This removes the strength of the colors who are not selected
-        disableStrength.forEach((strength) => {
-            delete copy[key][strength];
-        });
+        if (disableStrength && Array.isArray(disableStrength) && disableStrength.length) {
+            // This removes the strength of the colors who are not selected
+            disableStrength.forEach((strength) => {
+                delete copy[key][strength];
+            });
+        }
     }
 
     if (Object.keys(copy).length) {
@@ -121,7 +123,6 @@ export function getPreviewBoxStyle({
 }) {
     const { group, strength } = state || {};
     let hasValue = false;
-    console.log("group", group, strength);
     if (group && typeof strength === "number") {
         hasValue = !!(colors[group] && colors[group][strength]);
     }
