@@ -40,6 +40,8 @@ Foo.Bar:Content.Text:
             scheme: color
             # You can disable certain strengths
             disableStrength: [50, 100]
+            # If true, the picker is collapsed
+            collapsed: true
 ```
 
 ## Contributions
