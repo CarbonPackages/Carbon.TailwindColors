@@ -7,7 +7,8 @@ import { colors, sizes, fonts } from "../Tokens.stylex";
 const styles = stylex.create({
     previewBox: {
         flex: 1,
-        height: sizes.goldenUnit,
+        minHeight: sizes.goldenUnit,
+        maxHeight: sizes.goldenUnit,
         lineHeight: `calc(${sizes.goldenUnit} - 2px)`,
         border: `1px solid ${colors.contrastDark}`,
         borderRadius: sizes.borderRadius,
@@ -16,7 +17,7 @@ const styles = stylex.create({
         paddingInline: sizes.spacingHalf,
         gap: sizes.spacingHalf,
         overflow: "hidden",
-        textEllipsis: "ellipsis",
+        textOverflow: "ellipsis",
     },
     checkboard: {
         backgroundImage: `url('data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" fill-opacity=".25"><rect x="200" width="200" height="200" /><rect y="200" width="200" height="200" /></svg>')`,
