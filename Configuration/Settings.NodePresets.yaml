@@ -5,6 +5,13 @@ Neos:
         properties:
           Carbon:
             TailwindColors:
+              backgroundAndForeground:
+                type: array
+                ui:
+                  inspector:
+                    editor: 'Carbon.TailwindColors/BackgroundAndForeground'
+                    editorOptions:
+                      minimalStrenghtSpan: 650
               groups:
                 type: string
                 ui:

@@ -1,4 +1,4 @@
-type ColorObject = {
+export type ColorObject = {
     [key: string]: {
         [key: number]: string;
     };
@@ -12,6 +12,16 @@ export type StateObject = {
     hsl?: string;
     rgbValues?: string;
     hslValues?: string;
+};
+
+type ForegroundAndBackgroundStateObject = {
+    group?: string;
+    strength?: [number | null, number | null];
+    hex?: [string | null, string | null];
+    rgb?: [string | null, string | null];
+    hsl?: [string | null, string | null];
+    rgbValues?: [string | null, string | null];
+    hslValues?: [string | null, string | null];
 };
 
 export function generateColorObject({
@@ -34,7 +44,7 @@ export function generateColorObject({
     disableStrength = disableStrength || [];
 
     // Make a deep clone copy of the colors
-    let copy = JSON.parse(JSON.stringify(colors));
+    const copy = JSON.parse(JSON.stringify(colors));
     for (const key in colors) {
         // This removes the colors who are not selected
         if ((showOnlyColors && grayscale.includes(key)) || (showOnlyGrayscale && !grayscale.includes(key))) {
@@ -64,16 +74,77 @@ export function generateColorObject({
     return null;
 }
 
-export function createSelectBoxOptions(colors: any) {
+export function createSelectBoxOptions(colors: any, minimalStrenghtSpan: number | undefined) {
     return Object.keys(colors).map((value) => {
         const colorItems = Object.assign({}, colors[value]);
+        let colorsValues: string[] = [];
+
+        if (minimalStrenghtSpan) {
+            for (const key in colorItems) {
+                const strenght = parseInt(key);
+                // Check if a foreground color is even possible
+                if (strenght < minimalStrenghtSpan && strenght + minimalStrenghtSpan > 1000) {
+                    continue;
+                }
+                colorsValues.push(colorItems[key]);
+            }
+        } else {
+            colorsValues = Object.values(colorItems);
+        }
+
         const label = capitalizeFirstLetter(value);
+
         return {
             value,
-            colors: Object.values(colorItems),
+            colors: colorsValues,
             label,
         };
     });
+}
+
+export function colorForegroundAndBackgroundValues({
+    group,
+    strength,
+    colors,
+}: {
+    group: string;
+    strength: [number | null, number | null];
+    colors: [ColorObject, ColorObject];
+}): ForegroundAndBackgroundStateObject {
+    if (!group || !colors[0] || !colors[1] || !colors[0][group] || !colors[1][group]) {
+        return {};
+    }
+
+    strength = strength ?? null;
+
+    if (strength === null) {
+        return { group };
+    }
+
+    const bgGroup = colors[0][group];
+    const fgGroup = colors[1][group];
+    const bgStrength = strength[0];
+    const fgStrength = strength[1];
+
+    const bgColor = bgGroup && bgStrength !== null && Number.isInteger(bgStrength) ? bgGroup[bgStrength] : null;
+    const fgColor = fgGroup && fgStrength !== null && Number.isInteger(fgStrength) ? fgGroup[fgStrength] : null;
+
+    if (!bgColor && !fgColor) {
+        return { group };
+    }
+
+    const bgColorValues = bgColor ? colorValues(bgColor) : null;
+    const fgColorValues = fgColor ? colorValues(fgColor) : null;
+
+    return {
+        group,
+        strength: [bgColorValues ? bgStrength : null, fgColorValues ? fgStrength : null],
+        hex: [bgColorValues?.hex || null, fgColorValues?.hex || null],
+        rgb: [bgColorValues?.rgb || null, fgColorValues?.rgb || null],
+        hsl: [bgColorValues?.hsl || null, fgColorValues?.hsl || null],
+        rgbValues: [bgColorValues?.rgbValues || null, fgColorValues?.rgbValues || null],
+        hslValues: [bgColorValues?.hslValues || null, fgColorValues?.hslValues || null],
+    };
 }
 
 export function colorReturnValues({
@@ -122,17 +193,28 @@ export function getPreviewBoxStyle({
     placeholder: any;
 }) {
     const { group, strength } = state || {};
-    let hasValue = false;
-    if (group && typeof strength === "number") {
-        hasValue = !!(colors[group] && colors[group][strength]);
-    }
-    const backgroundColor = hasValue ? colors[group][strength] : placeholder;
-    const color = hasValue ? getTextColor(backgroundColor) : "transparent";
+    const backgroundColor = getPreviewBoxColor({ colors, group, strength });
+    const color = backgroundColor ? getTextColor(backgroundColor) : "transparent";
 
     return {
-        backgroundColor,
+        backgroundColor: backgroundColor || placeholder,
         color,
     };
+}
+
+export function getPreviewBoxColor({
+    colors,
+    group,
+    strength,
+}: {
+    colors: ColorObject;
+    group?: string;
+    strength?: any;
+}) {
+    if (group && typeof strength === "number" && colors[group] && colors[group][strength]) {
+        return colors[group][strength];
+    }
+    return;
 }
 
 function getTextColor(hex: string) {
