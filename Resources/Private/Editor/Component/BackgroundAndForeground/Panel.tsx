@@ -114,7 +114,7 @@ export default function Panel({
                     return (
                         <button
                             {...stylex.props(styles.colorListItem, current && styles.colorListItemActive)}
-                            key={state.group + entry.strength}
+                            key={`${state.group}${entry.strength}`}
                             style={{ backgroundColor: entry.color }}
                             title={entry.label}
                             onClick={() => handleColorClick(entry.strength, true)}
@@ -136,7 +136,7 @@ export default function Panel({
                         return (
                             <button
                                 {...stylex.props(styles.colorListItem, current && styles.colorListItemActive)}
-                                key={state.group + entry.strength}
+                                key={`${state.group}${entry.strength}`}
                                 style={{ backgroundColor: entry.color }}
                                 title={entry.label}
                                 onClick={() => handleColorClick(entry.strength, false)}

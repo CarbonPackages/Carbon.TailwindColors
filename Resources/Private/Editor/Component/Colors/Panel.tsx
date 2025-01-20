@@ -123,7 +123,7 @@ export default function Panel({
                                 return (
                                     <button
                                         {...stylex.props(styles.colorListItem, current && styles.colorListItemActive)}
-                                        key={item.group + entry.strength}
+                                        key={`${item.group}${entry.strength}`}
                                         style={{ backgroundColor: entry.color }}
                                         title={entry.label}
                                         onClick={() => handleColorClick(item.group, entry.strength)}

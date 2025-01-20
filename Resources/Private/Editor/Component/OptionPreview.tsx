@@ -78,7 +78,7 @@ export default function OptionPreview({
                             const start = stop * index + "%";
                             const end = stop * (index + 1) + "%";
                             return (
-                                <Fragment key={index}>
+                                <Fragment key={`color-${index}`}>
                                     <stop stopColor={color} offset={start}></stop>
                                     <stop stopColor={color} offset={end}></stop>
                                 </Fragment>
