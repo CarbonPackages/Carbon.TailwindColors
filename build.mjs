@@ -1,5 +1,5 @@
 import esbuild from "esbuild";
-import extensibilityMap from "@neos-project/neos-ui-extensibility/extensibilityMap.json" assert { type: "json" };
+import extensibilityMap from "@neos-project/neos-ui-extensibility/extensibilityMap.json" with { type: "json" };
 import stylexPlugin from "@stylexjs/esbuild-plugin";
 import path from "path";
 import { fileURLToPath } from "url";
@@ -27,10 +27,6 @@ const options = {
             generatedCSSFileName: path.resolve(__dirname, "Resources/Public/Plugin.css"),
             stylexImports: ["@stylexjs/stylex"],
             treeshakeCompensation: true,
-            unstable_moduleResolution: {
-                type: "commonJS",
-                rootDir: __dirname,
-            },
         }),
     ],
 };
