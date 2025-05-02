@@ -14,7 +14,7 @@
     "@stylexjs/eslint-plugin": "^0.10.1",
     "@stylexjs/stylex": "^0.10.1",
     "@types/react": "^19.0.7",
-    "esbuild": "^0.24.2",
+    "esbuild": "^0.25.0",
     "eslint": "^9.18.0",
     "eslint-plugin-prettier": "^5.2.3",
     "globals": "^15.14.0",
