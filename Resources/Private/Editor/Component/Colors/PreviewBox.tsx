@@ -47,8 +47,8 @@ export default function PreviewBox({
     state: any;
     colors: any;
     i18n: any;
-    highlight?: Boolean;
-    inPopover?: Boolean;
+    highlight?: boolean;
+    inPopover?: boolean;
 }) {
     return (
         <div

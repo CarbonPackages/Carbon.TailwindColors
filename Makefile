@@ -1,10 +1,14 @@
-.PHONY: help install watch production build prettier prettier-watch
+.PHONY: help install watch clean dev production build prettier prettier-watch
 
 .DEFAULT_GOAL := production
 
 ## Prettier files
 prettier:
 	@pnpm prettier --write --no-error-on-unmatched-pattern '**/*.{yaml,ts,tsx,mjs,js,md}'
+
+### Clean up generated files
+clean:
+	rm -rf Resources/Public
 
 ## Watch for changes in files and run prettier
 prettier-watch:
@@ -17,13 +21,20 @@ production: install prettier build
 install:
 	@pnpm install
 
-## Watch for changes and re-build on change
+## Watch for changes in JS and CSS files
 watch:
-	@pnpm watch
+	make clean
+	pnpm watch
 
-## Build editor
+## Build production version
 build:
-	@pnpm build
+	make clean
+	pnpm build
+
+## Build development version
+dev:
+	make clean
+	pnpm dev
 
 # Define colors
 GREEN  := $(shell tput -Txterm setaf 2)

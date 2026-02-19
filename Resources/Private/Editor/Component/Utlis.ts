@@ -74,7 +74,7 @@ export function generateColorObject({
     return null;
 }
 
-export function createSelectBoxOptions(colors: any, minimalStrenghtSpan: number | undefined) {
+export function createSelectBoxOptions(colors: any, minimalStrenghtSpan?: number | undefined) {
     return Object.keys(colors).map((value) => {
         const colorItems = Object.assign({}, colors[value]);
         let colorsValues: string[] = [];
@@ -266,12 +266,12 @@ function rgb2hsl(rgb: number[]) {
     b /= 255;
 
     // Find greatest and smallest channel values
-    let cmin = Math.min(r, g, b);
-    let cmax = Math.max(r, g, b);
-    let delta = cmax - cmin;
-    let h = 0;
-    let s: string | number = 0;
-    let l: string | number = 0;
+    const cmin = Math.min(r, g, b);
+    const cmax = Math.max(r, g, b);
+    const delta = cmax - cmin;
+    let h: number;
+    let s: string | number;
+    let l: string | number;
 
     // Calculate hue
     if (delta == 0) {

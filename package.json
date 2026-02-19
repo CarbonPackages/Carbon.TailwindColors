@@ -4,23 +4,26 @@
   "private": true,
   "scripts": {
     "build": "node build.mjs",
-    "watch": "node build.mjs --watch"
+    "watch": "node build.mjs --watch",
+    "dev": "node build.mjs --dev"
   },
   "devDependencies": {
-    "@eslint/js": "^9.18.0",
-    "@neos-project/neos-ui-extensibility": "~8.3.11",
-    "@neos-project/react-ui-components": "^8.3.11",
-    "@stylexjs/esbuild-plugin": "^0.10.1",
-    "@stylexjs/eslint-plugin": "^0.10.1",
-    "@stylexjs/stylex": "^0.10.1",
-    "@types/react": "^19.0.7",
-    "esbuild": "^0.24.2",
-    "eslint": "^9.18.0",
-    "eslint-plugin-prettier": "^5.2.3",
-    "globals": "^15.14.0",
-    "nanoid": "^5.0.9",
+    "@eslint/js": "^10.0.1",
+    "@neos-project/neos-ui-extensibility": "~8.3.16",
+    "@neos-project/react-ui-components": "^8.4.0",
+    "@stylexjs/eslint-plugin": "^0.17.5",
+    "@stylexjs/stylex": "^0.17.5",
+    "@stylexjs/unplugin": "^0.17.5",
+    "@types/react": "^19.2.14",
+    "esbuild": "^0.27.3",
+    "eslint": "^10.0.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.5",
+    "globals": "^17.3.0",
+    "nanoid": "^5.1.6",
     "onchange": "^7.1.0",
-    "prettier": "^3.4.2",
-    "typescript-eslint": "^8.20.0"
-  }
+    "prettier": "^3.8.1",
+    "typescript-eslint": "^8.56.0"
+  },
+  "packageManager": "pnpm@10.30.0+sha512.2b5753de015d480eeb88f5b5b61e0051f05b4301808a82ec8b840c9d2adf7748eb352c83f5c1593ca703ff1017295bc3fdd3119abb9686efc96b9fcb18200937"
 }

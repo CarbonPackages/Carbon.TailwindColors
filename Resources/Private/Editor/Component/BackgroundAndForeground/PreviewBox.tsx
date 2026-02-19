@@ -48,8 +48,8 @@ export default function PreviewBox({
     foregroundColors: any;
     backgroundColors: any;
     i18n: any;
-    highlight?: Boolean;
-    inPopover?: Boolean;
+    highlight?: boolean;
+    inPopover?: boolean;
 }) {
     const group = state?.group ? capitalizeFirstLetter(state.group) : null;
     const bgIsWhite = state?.strength?.[0] === 0;

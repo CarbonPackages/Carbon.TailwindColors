@@ -7,7 +7,7 @@ Neos:
             resource: resource://Carbon.TailwindColors/Public/Plugin.js
         stylesheets:
           Carbon.TailwindColors:
-            resource: resource://Carbon.TailwindColors/Public/Plugin.css
+            resource: resource://Carbon.TailwindColors/Public/stylex.css
     userInterface:
       translation:
         autoInclude:

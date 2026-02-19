@@ -69,12 +69,11 @@ const styles = stylex.create({
         display: "flex",
         alignItems: "center",
         justifyContent: "stretch",
-        border: "none",
+        borderWidth: 0,
         padding: 0,
         minHeight: sizes.goldenUnit,
         borderRadius: sizes.borderRadius,
         cursor: "pointer",
-        background: "none",
         backgroundColor: colors.contrastNeutral,
     },
     popoverButtonIcon: (open) => ({

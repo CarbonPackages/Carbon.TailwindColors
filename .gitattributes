@@ -11,6 +11,7 @@
 /Makefile export-ignore
 /package.json export-ignore
 /pnpm-lock.yaml export-ignore
+/pnpm-workspace.yaml export-ignore
 /Resources/Private/Editor export-ignore
 /tsconfig.json export-ignore
 /types.d.ts export-ignore

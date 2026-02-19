@@ -1,7 +1,7 @@
 // @ts-ignore
 import React from "react";
 import { SelectBox } from "@neos-project/react-ui-components";
-import { createSelectBoxOptions, colorReturnValues, capitalizeFirstLetter } from "../Utlis";
+import { createSelectBoxOptions, colorReturnValues, capitalizeFirstLetter, StateObject } from "../Utlis";
 import * as stylex from "@stylexjs/stylex";
 import OptionPreview from "../OptionPreview";
 import { colors, sizes } from "../Tokens.stylex";
@@ -16,7 +16,7 @@ const styles = stylex.create({
     colorListItem: {
         height: sizes.input,
         cursor: "pointer",
-        border: 0,
+        borderWidth: 0,
         padding: 0,
         flex: 1,
         ":first-child": {
@@ -58,8 +58,8 @@ export default function Panel({
 }: {
     colors: any;
     i18n: { [key: string]: string };
-    state: any;
-    setState: Function;
+    state: StateObject;
+    setState: (state: StateObject) => void;
     id: string;
     inPopover?: boolean;
 }) {
