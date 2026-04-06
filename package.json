@@ -9,21 +9,21 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@neos-project/neos-ui-extensibility": "~8.3.16",
-    "@neos-project/react-ui-components": "^8.4.0",
-    "@stylexjs/eslint-plugin": "^0.17.5",
-    "@stylexjs/stylex": "^0.17.5",
-    "@stylexjs/unplugin": "^0.17.5",
+    "@neos-project/neos-ui-extensibility": "~8.3.19",
+    "@neos-project/react-ui-components": "^8.4.3",
+    "@stylexjs/eslint-plugin": "^0.18.2",
+    "@stylexjs/stylex": "^0.18.2",
+    "@stylexjs/unplugin": "^0.18.2",
     "@types/react": "^19.2.14",
-    "esbuild": "^0.27.3",
-    "eslint": "^10.0.2",
+    "esbuild": "^0.28.0",
+    "eslint": "^10.2.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.5",
-    "globals": "^17.3.0",
-    "nanoid": "^5.1.6",
+    "globals": "^17.4.0",
+    "nanoid": "^5.1.7",
     "onchange": "^7.1.0",
     "prettier": "^3.8.1",
-    "typescript-eslint": "^8.56.1"
+    "typescript-eslint": "^8.58.0"
   },
-  "packageManager": "pnpm@10.30.2+sha512.36cdc707e7b7940a988c9c1ecf88d084f8514b5c3f085f53a2e244c2921d3b2545bc20dd4ebe1fc245feec463bb298aecea7a63ed1f7680b877dc6379d8d0cb4"
+  "packageManager": "pnpm@10.33.0+sha512.10568bb4a6afb58c9eb3630da90cc9516417abebd3fabbe6739f0ae795728da1491e9db5a544c76ad8eb7570f5c4bb3d6c637b2cb41bfdcdb47fa823c8649319"
 }
