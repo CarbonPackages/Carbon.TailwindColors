@@ -15,7 +15,7 @@
     "@stylexjs/stylex": "^0.18.2",
     "@stylexjs/unplugin": "^0.18.2",
     "@types/react": "^19.2.14",
-    "esbuild": "^0.28.0",
+    "esbuild": "^0.28.1",
     "eslint": "^10.2.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.5",
